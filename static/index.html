@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mnemos</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>◈</text></svg>">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="logo">MNEMOS</div>
+      <div class="status-indicator">
+        <div class="status-dot" id="status-dot"></div>
+        <span id="status-text">...</span>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <nav class="sidebar">
+        <div class="nav-section">
+          <button class="nav-item active" data-view="search">
+            search <span class="shortcut">1</span>
+          </button>
+          <button class="nav-item" data-view="documents">
+            docs <span class="shortcut">2</span>
+          </button>
+          <button class="nav-item" data-view="upload">
+            upload <span class="shortcut">3</span>
+          </button>
+          <button class="nav-item" data-view="url">
+            ingest <span class="shortcut">4</span>
+          </button>
+        </div>
+      </nav>
+
+      <main class="content-area">
+        <!-- Search -->
+        <div id="view-search" class="view">
+          <div class="content-header">
+            <h1 class="content-title">search</h1>
+          </div>
+          <div class="content-body">
+            <div class="card">
+              <form id="search-form">
+                <div class="search-container">
+                  <div class="search-input-wrapper">
+                    <input type="text" id="search-query" class="form-input" placeholder="query..." required autofocus>
+                  </div>
+                  <div class="search-collection-wrapper" style="width: 160px;">
+                    <select id="search-collection" class="form-input">
+                      <option value="">all collections</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary">go</button>
+                </div>
+              </form>
+            </div>
+            <div id="search-results" class="results-container"></div>
+          </div>
+        </div>
+
+        <!-- Documents -->
+        <div id="view-documents" class="view hidden">
+          <div class="content-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <h1 class="content-title">documents</h1>
+            <button id="export-btn" class="btn btn-secondary" style="padding: 6px 12px; font-size: 10px;">export all</button>
+          </div>
+          <div class="content-body">
+            <div class="stats-grid" id="doc-stats"></div>
+            <div id="documents-list"></div>
+          </div>
+        </div>
+
+        <!-- Upload -->
+        <div id="view-upload" class="view hidden">
+          <div class="content-header">
+            <h1 class="content-title">upload</h1>
+          </div>
+          <div class="content-body">
+            <div class="card">
+              <form id="upload-form">
+                <div class="form-group" style="margin-bottom: 20px;">
+                  <label class="form-label">collection</label>
+                  <div style="display: flex; gap: 8px;">
+                    <select id="upload-collection" class="form-input" style="flex: 1;"></select>
+                    <button type="button" class="btn btn-secondary" onclick="addNewCollection('upload-collection')" style="padding: 0 12px;">+</button>
+                  </div>
+                </div>
+                <div class="upload-zone" id="upload-zone">
+                  <input type="file" id="file-input" accept=".pdf,.md,.markdown,.txt,.text,.html,.htm,.rst,.docx" hidden>
+                  <div class="upload-zone-icon">↑</div>
+                  <div class="upload-zone-title">drop file</div>
+                  <div class="upload-zone-formats">
+                    <span class="badge">.pdf</span>
+                    <span class="badge">.md</span>
+                    <span class="badge">.txt</span>
+                    <span class="badge">.html</span>
+                    <span class="badge">.rst</span>
+                    <span class="badge">.docx</span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- URL Ingest -->
+        <div id="view-url" class="view hidden">
+          <div class="content-header">
+            <h1 class="content-title">ingest</h1>
+          </div>
+          <div class="content-body">
+            <div class="tabs">
+              <button class="tab active" data-tab="single">page</button>
+              <button class="tab" data-tab="site">site</button>
+            </div>
+
+            <div id="tab-single" class="card">
+              <form id="url-form">
+                <div class="form-group">
+                  <label class="form-label">url</label>
+                  <input type="url" id="url-input" class="form-input" placeholder="https://..." required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">collection</label>
+                  <div style="display: flex; gap: 8px;">
+                    <select id="url-collection" class="form-input" style="flex: 1;"></select>
+                    <button type="button" class="btn btn-secondary" onclick="addNewCollection('url-collection')" style="padding: 0 12px;">+</button>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">fetch</button>
+              </form>
+            </div>
+
+            <div id="tab-site" class="card hidden">
+              <form id="site-form">
+                <div class="form-group">
+                  <label class="form-label">base url</label>
+                  <input type="url" id="site-url" class="form-input" placeholder="https://..." required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">path filter</label>
+                  <input type="text" id="site-path" class="form-input" placeholder="/docs/">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">collection</label>
+                  <div style="display: flex; gap: 8px;">
+                    <select id="site-collection" class="form-input" style="flex: 1;"></select>
+                    <button type="button" class="btn btn-secondary" onclick="addNewCollection('site-collection')" style="padding: 0 12px;">+</button>
+                  </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">max pages</label>
+                    <input type="number" id="site-max-pages" class="form-input" value="50" min="1" max="200">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">max depth</label>
+                    <input type="number" id="site-max-depth" class="form-input" value="3" min="1" max="5">
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">crawl</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="keyboard-hint">
+      <span><kbd>/</kbd> search</span>
+      <span><kbd>↑</kbd><kbd>↓</kbd> select</span>
+      <span><kbd>enter</kbd> view details</span>
+    </div>
+  </div>
+
+  <!-- Chunk Detail Modal -->
+  <div id="chunk-modal" class="modal-overlay hidden">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 id="modal-title" class="modal-title">chunk details</h2>
+        <button id="modal-close" class="modal-close">&times;</button>
+      </div>
+      <div id="modal-body" class="modal-body"></div>
+      <div class="modal-footer">
+        <div id="modal-meta" class="modal-meta"></div>
+        <button id="modal-close-btn" class="btn">close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <div id="loading-overlay" class="loading-overlay hidden">
+    <div class="loading-text" id="loading-text">loading</div>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

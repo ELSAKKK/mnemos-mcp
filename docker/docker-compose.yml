@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: mnemos-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mnemos
+    ports:
+      - "5433:5432"
+    volumes:
+      - mnemos_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d mnemos"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mnemos_data:
