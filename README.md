@@ -1,5 +1,7 @@
 # 🧠 mnemos-mcp - Your Private Knowledge Server Made Easy
 
+[![SafeSkill 91/100](https://img.shields.io/badge/SafeSkill-91%2F100_Verified%20Safe-brightgreen)](https://safeskill.dev/scan/elsakkk-mnemos-mcp)
+
 ## 🚀 Getting Started
 
 Welcome to mnemos-mcp! This application helps you transform documents into searchable knowledge. With features like multi-collection isolation and local vector search, you can keep your data private and accessible. Follow these simple steps to download and run mnemos-mcp on your system.
